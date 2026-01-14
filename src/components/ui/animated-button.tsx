@@ -1,29 +1,29 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-display",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-base font-bold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0 font-display shadow-lg",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25",
-        hero: "bg-gradient-to-r from-electric-blue to-electric-purple text-white hover:shadow-xl hover:shadow-electric-blue/30 hover:scale-105",
-        heroOutline:
-          "border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 hover:scale-105",
-        gold: "bg-gradient-to-r from-gold to-gold-light text-navy-deep hover:shadow-xl hover:shadow-gold/30 hover:scale-105",
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105",
+        kids: "bg-gradient-to-r from-coral-pink to-lavender text-white hover:shadow-xl hover:shadow-coral-pink/30 hover:scale-105 border-4 border-white",
+        kidsOutline:
+          "border-4 border-lavender bg-white text-lavender hover:bg-lavender/10 hover:scale-105",
+        sunny: "bg-gradient-to-r from-sunny-yellow to-peach text-foreground hover:shadow-xl hover:shadow-sunny-yellow/30 hover:scale-105 border-4 border-white",
+        mint: "bg-gradient-to-r from-sky-blue to-mint text-white hover:shadow-xl hover:shadow-sky-blue/30 hover:scale-105 border-4 border-white",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        glass:
-          "bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 hover:scale-105",
+        playful:
+          "bg-white border-4 border-cream text-foreground hover:border-lavender hover:scale-105 shadow-lg",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 px-4 text-xs",
-        lg: "h-14 px-8 text-base",
-        xl: "h-16 px-10 text-lg",
+        default: "h-12 px-6 py-2",
+        sm: "h-10 px-4 text-sm",
+        lg: "h-14 px-8 text-lg",
+        xl: "h-16 px-10 text-xl",
         icon: "h-10 w-10",
       },
     },
@@ -47,8 +47,9 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
       <motion.button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.05, rotate: [-1, 1, -1, 0] }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
         {...props}
       >
         {children}

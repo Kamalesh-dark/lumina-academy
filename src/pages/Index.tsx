@@ -1,11 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
-import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 import { ProgramsSection } from "@/components/ProgramsSection";
-import { CampusLifeSection } from "@/components/CampusLifeSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { AdmissionsCTASection } from "@/components/AdmissionsCTASection";
+import { BookTourSection } from "@/components/BookTourSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -14,11 +12,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <WhyChooseUsSection />
       <ProgramsSection />
-      <CampusLifeSection />
       <TestimonialsSection />
-      <AdmissionsCTASection />
+      <BookTourSection />
       <Footer />
     </div>
   );
