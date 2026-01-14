@@ -1,36 +1,50 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote:
-      "Viby International School transformed our daughter's perspective on learning. The teachers genuinely care about each student's growth and success.",
-    author: "Sarah & Michael Chen",
-    role: "Parents of Grade 8 Student",
-    avatar: "SC",
+    quote: "Very good school. Lot of improvement in kid's activity and skills.",
+    author: "Sweta Jagannathan",
+    role: "Mother of two kids",
+    avatar: "SJ",
+    stars: 5,
   },
   {
-    quote:
-      "The IB program here is exceptional. I felt fully prepared for university and life beyond. The global community made me who I am today.",
-    author: "Aisha Rahman",
-    role: "Class of 2024, now at Oxford University",
-    avatar: "AR",
+    quote: "My daughter joined last year in play school. She was singing many rhymes now.",
+    author: "Karthik Siva",
+    role: "Parent",
+    avatar: "KS",
+    stars: 5,
   },
   {
-    quote:
-      "What sets Viby apart is the perfect balance of academic rigor and emotional support. Our son has flourished in ways we never imagined.",
-    author: "David & Emma Thompson",
-    role: "Parents of Grade 11 Student",
-    avatar: "DT",
+    quote: "Viby International School has been a fantastic choice for our child.",
+    author: "Ram Sharath",
+    role: "Parent",
+    avatar: "RS",
+    stars: 5,
   },
   {
-    quote:
-      "The diverse community and world-class facilities made my school years unforgettable. I made friends from every corner of the world.",
-    author: "Marcus Williams",
-    role: "Class of 2023, now at MIT",
-    avatar: "MW",
+    quote: "The school was very pleasant and happy environment. The teachers are well being.",
+    author: "Shobana Rajesh",
+    role: "Mother of two kids",
+    avatar: "SR",
+    stars: 5,
+  },
+  {
+    quote: "Our kids have had a wonderful experience. The teachers are dedicated, caring.",
+    author: "Saravana Kumar",
+    role: "Parent",
+    avatar: "SK",
+    stars: 5,
+  },
+  {
+    quote: "An excellent school where children learn and grow with care.",
+    author: "Sheik",
+    role: "Parent",
+    avatar: "SH",
+    stars: 5,
   },
 ];
 
@@ -42,24 +56,18 @@ export const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
+  const nextSlide = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const prevSlide = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Background */}
-      <div className="absolute inset-0 hero-gradient opacity-50" />
+    <section className="section-padding-kids relative overflow-hidden bg-white" ref={ref}>
+      {/* Background decorations */}
+      <div className="absolute top-10 left-10 text-8xl opacity-10">❤️</div>
+      <div className="absolute bottom-10 right-10 text-8xl opacity-10">💛</div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
@@ -67,17 +75,16 @@ export const TestimonialsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="text-gold font-medium text-sm uppercase tracking-wider">
-            Testimonials
-          </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mt-4">
-            Stories of
-            <span className="bg-gradient-to-r from-electric-blue to-electric-purple bg-clip-text text-transparent">
-              {" "}
-              Success
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-pink/10 border-2 border-coral-pink/30 mb-4">
+            <span className="text-xl">👨‍👩‍👧‍👦</span>
+            <span className="text-sm font-semibold text-coral-pink">Happy Viby Families</span>
+          </div>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
+            What Parents
+            <span className="bg-gradient-to-r from-coral-pink to-sunny-yellow bg-clip-text text-transparent"> Say </span>
+            💬
           </h2>
         </motion.div>
 
@@ -86,34 +93,41 @@ export const TestimonialsSection = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-              className="glass-card p-8 md:p-12 text-center"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="bg-gradient-to-br from-cream to-peach/30 rounded-3xl p-8 md:p-12 border-4 border-white shadow-xl text-center"
             >
               {/* Quote Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-electric-blue to-electric-purple flex items-center justify-center mx-auto mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-coral-pink to-lavender flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Quote className="w-8 h-8 text-white" />
               </div>
 
+              {/* Stars */}
+              <div className="flex justify-center gap-1 mb-6">
+                {[...Array(testimonials[activeIndex].stars)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 text-sunny-yellow fill-sunny-yellow" />
+                ))}
+              </div>
+
               {/* Quote Text */}
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 font-light italic">
+              <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 font-medium">
                 "{testimonials[activeIndex].quote}"
               </p>
 
               {/* Author */}
               <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
-                  <span className="font-display font-bold text-navy-deep text-sm">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg">
+                  <span className="font-display font-bold text-white text-lg">
                     {testimonials[activeIndex].avatar}
                   </span>
                 </div>
                 <div className="text-left">
-                  <div className="font-display font-semibold text-white">
+                  <div className="font-display font-bold text-foreground text-lg">
                     {testimonials[activeIndex].author}
                   </div>
-                  <div className="text-sm text-white/60">
+                  <div className="text-sm text-muted-foreground">
                     {testimonials[activeIndex].role}
                   </div>
                 </div>
@@ -124,15 +138,15 @@ export const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors hidden md:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden md:block"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-6 h-6 text-foreground" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-colors hidden md:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden md:block"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-6 h-6 text-foreground" />
           </button>
         </div>
 
@@ -142,10 +156,10 @@ export const TestimonialsSection = () => {
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? "w-8 bg-gradient-to-r from-electric-blue to-electric-purple"
-                  : "bg-white/30 hover:bg-white/50"
+                  ? "w-8 bg-gradient-to-r from-coral-pink to-lavender"
+                  : "bg-muted hover:bg-muted-foreground/30"
               }`}
             />
           ))}

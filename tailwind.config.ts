@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        display: ["Baloo 2", "cursive"],
+        body: ["Nunito", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,15 +61,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom premium colors
-        glass: "hsl(var(--glass))",
-        "glass-border": "hsl(var(--glass-border))",
-        gold: "hsl(var(--gold))",
-        "gold-light": "hsl(var(--gold-light))",
-        "navy-deep": "hsl(var(--navy-deep))",
-        "navy-light": "hsl(var(--navy-light))",
-        "electric-blue": "hsl(var(--electric-blue))",
-        "electric-purple": "hsl(var(--electric-purple))",
+        // Playful Kids Colors
+        "sunny-yellow": "hsl(var(--sunny-yellow))",
+        "sky-blue": "hsl(var(--sky-blue))",
+        "grass-green": "hsl(var(--grass-green))",
+        "coral-pink": "hsl(var(--coral-pink))",
+        lavender: "hsl(var(--lavender))",
+        peach: "hsl(var(--peach))",
+        mint: "hsl(var(--mint))",
+        cream: "hsl(var(--cream))",
       },
       borderRadius: {
         lg: "var(--radius)",

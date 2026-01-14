@@ -1,29 +1,36 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Target, Heart, Globe, Lightbulb } from "lucide-react";
-import studentsImage from "@/assets/students-learning.jpg";
+import { Brain, Heart, Lightbulb, Users, Star, Sparkles } from "lucide-react";
 
-const values = [
+const features = [
   {
-    icon: Target,
-    title: "Excellence",
-    description: "Striving for the highest standards in everything we do",
+    icon: Brain,
+    title: "Behavioral Skills",
+    description: "Nurturing positive behaviors and emotional intelligence",
+    color: "from-lavender to-purple-400",
+    bg: "bg-lavender/10",
+  },
+  {
+    icon: Lightbulb,
+    title: "Academic Excellence",
+    description: "Building strong foundations for lifelong learning",
+    color: "from-sunny-yellow to-amber-400",
+    bg: "bg-sunny-yellow/10",
+  },
+  {
+    icon: Users,
+    title: "Leadership Qualities",
+    description: "Empowering children to lead with confidence",
+    color: "from-sky-blue to-cyan-400",
+    bg: "bg-sky-blue/10",
   },
   {
     icon: Heart,
     title: "Compassion",
-    description: "Nurturing empathy and kindness in every student",
-  },
-  {
-    icon: Globe,
-    title: "Global Mindset",
-    description: "Preparing students for an interconnected world",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description: "Embracing creativity and forward-thinking education",
+    description: "Teaching kindness and empathy towards others",
+    color: "from-coral-pink to-rose-400",
+    bg: "bg-coral-pink/10",
   },
 ];
 
@@ -34,99 +41,86 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="section-padding relative overflow-hidden"
+      className="section-padding-kids relative overflow-hidden bg-white"
       ref={ref}
     >
-      {/* Background Elements */}
-      <div className="floating-orb w-80 h-80 bg-electric-blue/20 -top-40 -right-40" />
-      <div className="floating-orb w-64 h-64 bg-electric-purple/20 bottom-20 -left-32" />
-
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden">
-              <img
-                src={studentsImage}
-                alt="Students learning together"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" />
-            </div>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lavender/10 border-2 border-lavender/30 mb-4">
+            <Star className="w-4 h-4 text-lavender" />
+            <span className="text-sm font-semibold text-lavender">GEN-ALPHA Curriculum</span>
+          </div>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-4">
+            Why Choose
+            <span className="bg-gradient-to-r from-lavender to-coral-pink bg-clip-text text-transparent"> Viby? </span>
+            🌟
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            GEN-ALPHA Curriculum is designed to nurture behavioral skills, foster academic excellence, 
+            and cultivate leadership qualities—empowering children to thrive in a rapidly evolving world.
+          </p>
+        </motion.div>
 
-            {/* Floating Card */}
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              key={feature.title}
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 glass-card p-6 max-w-xs"
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              className="group"
             >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
-                  <span className="font-display font-bold text-navy-deep">
-                    25+
-                  </span>
-                </div>
-                <div>
-                  <div className="font-display font-semibold text-white">
-                    Years of Excellence
-                  </div>
-                  <div className="text-sm text-white/60">
-                    Shaping future leaders
-                  </div>
-                </div>
+              <div className={`${feature.bg} rounded-3xl p-6 h-full border-4 border-transparent hover:border-cream transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}>
+                <motion.div
+                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}
+                >
+                  <feature.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="font-display font-bold text-xl text-foreground mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="text-gold font-medium text-sm uppercase tracking-wider">
-              About Us
-            </span>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white mt-4 mb-6">
-              Nurturing Minds,
-              <br />
-              <span className="bg-gradient-to-r from-electric-blue to-electric-purple bg-clip-text text-transparent">
-                Inspiring Futures
-              </span>
-            </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-8">
-              At Viby International School, we believe in the transformative
-              power of education. Our internationally recognized curriculum,
-              combined with a nurturing environment, empowers students to
-              discover their passions and achieve their fullest potential.
-            </p>
-
-            {/* Values Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {values.map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                  className="glass-card p-4 group hover:bg-white/10 transition-all duration-300"
-                >
-                  <value.icon className="w-8 h-8 text-electric-blue mb-3 group-hover:text-gold transition-colors" />
-                  <h3 className="font-display font-semibold text-white mb-1">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-white/60">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          ))}
         </div>
+
+        {/* Bottom Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-16 bg-gradient-to-r from-cream via-peach/30 to-mint/30 rounded-3xl p-8 md:p-12 border-4 border-white shadow-xl"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="text-5xl animate-wiggle">🌍</div>
+              <div>
+                <h3 className="font-display font-bold text-2xl text-foreground">
+                  Proudly Rooted in Chennai, India
+                </h3>
+                <p className="text-muted-foreground">
+                  Expanded across India and Malaysia — empowering global citizens
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-sunny-yellow" />
+              <span className="font-display font-bold text-lg text-foreground">Premium Play Schools</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
