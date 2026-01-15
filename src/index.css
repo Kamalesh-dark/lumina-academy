@@ -175,6 +175,57 @@
     }
   }
 
+  @keyframes swing {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
+  @keyframes pop {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes confetti {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
   .animate-bounce-slow {
     animation: bounce-slow 3s ease-in-out infinite;
   }
@@ -189,5 +240,18 @@
 
   .animate-sparkle {
     animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-swing {
+    animation: swing 2s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  .animate-pop {
+    animation: pop 1.5s ease-in-out infinite;
+  }
+
+  .animate-confetti {
+    animation: confetti 4s linear infinite;
   }
 }
