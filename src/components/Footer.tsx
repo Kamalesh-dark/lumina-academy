@@ -1,4 +1,6 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
 import {
   MapPin,
   Phone,
@@ -8,6 +10,7 @@ import {
   Youtube,
   Heart,
 } from "lucide-react";
+import { FloatingBalloon, HappyStar } from "./AnimatedCharacters";
 
 const footerLinks = {
   "Quick Links": [
@@ -33,14 +36,43 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate footer links on scroll
+      gsap.from(".footer-link", {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 90%",
+        },
+      });
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="relative overflow-hidden bg-foreground text-white">
+    <footer ref={footerRef} className="relative overflow-hidden bg-foreground text-white">
       {/* Wave Top */}
       <div className="absolute top-0 left-0 right-0 -translate-y-1">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path d="M0 80V40C240 0 480 0 720 20C960 40 1200 40 1440 20V80H0Z" fill="currentColor" className="text-foreground"/>
         </svg>
       </div>
+
+      {/* Animated Characters */}
+      <FloatingBalloon color="#F472B6" className="absolute top-20 right-[10%] w-10 h-16 opacity-30" delay={0} />
+      <HappyStar color="#FBBF24" className="absolute top-32 left-[8%] w-8 h-8 opacity-20" delay={0.5} />
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-20 text-4xl opacity-10 animate-float-bubble">🌟</div>
+      <div className="absolute bottom-40 right-20 text-4xl opacity-10 animate-wiggle">✨</div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pt-16">
         {/* Main Footer Content */}
@@ -51,11 +83,15 @@ export const Footer = () => {
               <motion.a
                 href="#"
                 className="flex items-center gap-3 mb-6"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, x: 5 }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg">
+                <motion.div 
+                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                >
                   <span className="text-white font-display font-bold text-2xl">V</span>
-                </div>
+                </motion.div>
                 <div>
                   <span className="font-display font-bold text-2xl text-white">
                     Viby
@@ -73,28 +109,37 @@ export const Footer = () => {
 
               {/* Contact Info */}
               <div className="space-y-3 text-white/80">
-                <div className="flex items-center gap-3">
+                <motion.div 
+                  className="flex items-center gap-3"
+                  whileHover={{ x: 5 }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-lavender/20 flex items-center justify-center">
                     <MapPin className="w-4 h-4 text-lavender" />
                   </div>
                   <span>Chennai, India & Malaysia</span>
-                </div>
-                <div className="flex items-center gap-3">
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3"
+                  whileHover={{ x: 5 }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-coral-pink/20 flex items-center justify-center">
                     <Phone className="w-4 h-4 text-coral-pink" />
                   </div>
                   <a href="tel:+919840144800" className="hover:text-white transition-colors">
                     +91 98401 44800
                   </a>
-                </div>
-                <div className="flex items-center gap-3">
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3"
+                  whileHover={{ x: 5 }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-sunny-yellow/20 flex items-center justify-center">
                     <Mail className="w-4 h-4 text-sunny-yellow" />
                   </div>
                   <a href="mailto:info@vibyinternationalschool.com" className="hover:text-white transition-colors">
                     info@vibyinternationalschool.com
                   </a>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -107,13 +152,17 @@ export const Footer = () => {
                 <ul className="space-y-3">
                   {links.map((link) => (
                     <li key={link.name}>
-                      <a
+                      <motion.a
                         href={link.href}
-                        className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group"
+                        className="footer-link text-white/70 hover:text-white transition-colors flex items-center gap-2 group"
+                        whileHover={{ x: 5 }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-lavender group-hover:bg-coral-pink transition-colors" />
+                        <motion.span 
+                          className="w-1.5 h-1.5 rounded-full bg-lavender group-hover:bg-coral-pink transition-colors"
+                          whileHover={{ scale: 1.5 }}
+                        />
                         {link.name}
-                      </a>
+                      </motion.a>
                     </li>
                   ))}
                 </ul>
@@ -126,19 +175,27 @@ export const Footer = () => {
         <div className="py-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm flex items-center gap-2">
             © 2026 Viby International School. Made with 
-            <Heart className="w-4 h-4 text-coral-pink fill-coral-pink" />
+            <motion.span
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            >
+              <Heart className="w-4 h-4 text-coral-pink fill-coral-pink" />
+            </motion.span>
             for little learners
           </p>
 
           {/* Social Links */}
           <div className="flex items-center gap-3">
-            {socialLinks.map((social) => (
+            {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}
                 href={social.href}
                 className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-lavender hover:to-coral-pink flex items-center justify-center transition-all"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 text-white" />
