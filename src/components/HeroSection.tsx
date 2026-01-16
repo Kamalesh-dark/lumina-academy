@@ -14,6 +14,12 @@ import {
   SpinningPinwheel,
   DancingRainbow,
 } from "./AnimatedCharacters";
+import {
+  RunningCat,
+  RunningDog,
+  FlyingBird,
+  FlyingBee,
+} from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,6 +101,13 @@ export const HeroSection = () => {
       <SpinningPinwheel className="absolute bottom-32 right-[8%] w-16 h-20 z-10" delay={0} />
       
       <DancingRainbow className="absolute top-1/4 right-[30%] w-20 h-12 opacity-70 z-10" delay={0.5} />
+      
+      {/* Running Animals */}
+      <RunningCat className="absolute bottom-28 w-20 h-12 z-20" delay={0} direction="left" />
+      <RunningDog className="absolute bottom-36 w-24 h-14 z-20" delay={3} direction="left" />
+      <FlyingBird className="absolute top-32 w-14 h-10 z-20" delay={1} color="#3B82F6" />
+      <FlyingBird className="absolute top-48 w-12 h-8 z-20" delay={2.5} color="#A855F7" />
+      <FlyingBee className="absolute top-1/2 w-12 h-10 z-20" delay={0.5} />
 
       {/* Decorative Bubbles */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-sunny-yellow/30 rounded-full blur-2xl animate-float-bubble" />

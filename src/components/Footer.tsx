@@ -11,6 +11,7 @@ import {
   Heart,
 } from "lucide-react";
 import { FloatingBalloon, HappyStar } from "./AnimatedCharacters";
+import { CrawlingTurtle, CrawlingLadybug, ScurryingSquirrel } from "./AnimatedAnimals";
 
 const footerLinks = {
   "Quick Links": [
@@ -69,6 +70,11 @@ export const Footer = () => {
       {/* Animated Characters */}
       <FloatingBalloon color="#F472B6" className="absolute top-20 right-[10%] w-10 h-16 opacity-30" delay={0} />
       <HappyStar color="#FBBF24" className="absolute top-32 left-[8%] w-8 h-8 opacity-20" delay={0.5} />
+
+      {/* Running Animals */}
+      <CrawlingTurtle className="absolute bottom-24 w-14 h-8 z-20 opacity-40" delay={0} direction="right" />
+      <CrawlingLadybug className="absolute bottom-16 w-10 h-8 z-20 opacity-30" delay={3} direction="right" />
+      <ScurryingSquirrel className="absolute bottom-32 w-14 h-12 z-20 opacity-35" delay={1.5} direction="right" />
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-20 text-4xl opacity-10 animate-float-bubble">🌟</div>

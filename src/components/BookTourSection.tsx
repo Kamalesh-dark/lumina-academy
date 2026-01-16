@@ -13,6 +13,7 @@ import {
   FlyingButterfly,
   WavingKid,
 } from "./AnimatedCharacters";
+import { RunningDog, WaddlingDuck, FlyingBird, HoppingFrog } from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,6 +73,12 @@ export const BookTourSection = () => {
       <FlyingButterfly className="absolute top-1/3 right-[10%] w-14 h-10 z-10 opacity-50" delay={1} />
       <DancingRainbow className="absolute bottom-1/4 right-[5%] w-24 h-14 opacity-40 z-10" delay={0.5} />
       <WavingKid className="absolute bottom-20 left-[3%] w-20 h-28 z-10 opacity-70" delay={0} />
+      
+      {/* Running Animals */}
+      <RunningDog className="absolute bottom-24 w-20 h-12 z-20 opacity-70" delay={0} direction="right" />
+      <WaddlingDuck className="absolute bottom-16 w-14 h-12 z-20 opacity-60" delay={2} direction="right" />
+      <FlyingBird className="absolute top-28 w-14 h-10 z-20 opacity-50" delay={1} color="#fff" />
+      <HoppingFrog className="absolute bottom-32 w-12 h-10 z-20 opacity-60" delay={3} />
       
       {/* Decorative Elements */}
       <div className="absolute top-10 left-10 text-6xl opacity-30 animate-bounce-slow">🎈</div>

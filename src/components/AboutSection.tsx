@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Heart, Lightbulb, Users, Star, Sparkles } from "lucide-react";
 import { JumpingRabbit, BouncingBall, HappyStar } from "./AnimatedCharacters";
+import { HoppingFrog, CrawlingTurtle, BouncingBunny, WaddlingDuck } from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -91,6 +92,12 @@ export const AboutSection = () => {
       <BouncingBall color="#FBBF24" className="absolute top-32 right-[8%] w-12 h-12 z-10" delay={0.5} />
       <BouncingBall color="#F472B6" className="absolute bottom-40 left-[10%] w-10 h-10 z-10" delay={1} />
       <HappyStar color="#A855F7" className="absolute bottom-32 right-[12%] w-14 h-14 z-10" delay={0.3} />
+
+      {/* Running Animals */}
+      <HoppingFrog className="absolute bottom-24 w-14 h-12 z-20" delay={0} />
+      <CrawlingTurtle className="absolute bottom-16 w-16 h-10 z-20" delay={2} direction="left" />
+      <BouncingBunny className="absolute bottom-20 w-12 h-16 z-20" delay={1} />
+      <WaddlingDuck className="absolute bottom-28 w-14 h-12 z-20" delay={4} direction="left" />
 
       {/* Background decorations */}
       <div className="absolute top-10 right-20 text-8xl opacity-10 animate-swing">🎠</div>
