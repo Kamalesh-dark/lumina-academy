@@ -4,6 +4,7 @@ import { useInView } from "framer-motion";
 import gsap from "gsap";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { HappyStar, FloatingBalloon } from "./AnimatedCharacters";
+import { RunningCat, FlyingBee, BouncingBunny } from "./AnimatedAnimals";
 
 const testimonials = [
   {
@@ -87,6 +88,11 @@ export const TestimonialsSection = () => {
       <HappyStar color="#F472B6" className="absolute bottom-20 right-[10%] w-10 h-10 z-10" delay={0.5} />
       <FloatingBalloon color="#A855F7" className="absolute top-32 right-[5%] w-10 h-16 z-10" delay={0.3} />
       <FloatingBalloon color="#22C55E" className="absolute bottom-40 left-[5%] w-8 h-12 z-10" delay={0.8} />
+
+      {/* Running Animals */}
+      <RunningCat className="absolute bottom-20 w-18 h-12 z-20" delay={1} direction="right" />
+      <FlyingBee className="absolute top-1/3 w-12 h-10 z-20" delay={0} />
+      <BouncingBunny className="absolute bottom-28 left-[10%] w-10 h-14 z-20" delay={2} />
 
       {/* Background decorations */}
       <div className="absolute top-10 left-10 text-8xl opacity-10 animate-pop">❤️</div>

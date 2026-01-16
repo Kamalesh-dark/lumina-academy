@@ -8,6 +8,7 @@ import lkgImg from "@/assets/lkg-class.jpg";
 import daycareImg from "@/assets/daycare.jpg";
 import activitiesImg from "@/assets/activities.jpg";
 import { FloatingBalloon, SpinningPinwheel, FlyingButterfly } from "./AnimatedCharacters";
+import { ScurryingSquirrel, SwimmingFish, SlitheringSnake, CrawlingLadybug } from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,6 +118,13 @@ export const ProgramsSection = () => {
       <FloatingBalloon color="#22C55E" className="absolute top-32 right-[8%] w-12 h-18 z-10" delay={0.7} />
       <SpinningPinwheel className="absolute bottom-40 left-[8%] w-14 h-18 z-10" delay={0} />
       <FlyingButterfly className="absolute top-1/2 right-[5%] w-16 h-12 z-10" delay={1} />
+
+      {/* Running Animals */}
+      <ScurryingSquirrel className="absolute bottom-20 w-16 h-14 z-20" delay={0} direction="left" />
+      <SwimmingFish className="absolute top-1/3 w-16 h-10 z-20" delay={1} color="#F472B6" />
+      <SwimmingFish className="absolute top-1/2 w-14 h-8 z-20" delay={3} color="#3B82F6" />
+      <SlitheringSnake className="absolute bottom-32 w-32 h-12 z-20" delay={2} />
+      <CrawlingLadybug className="absolute bottom-16 w-12 h-10 z-20" delay={1.5} direction="left" />
 
       {/* Background decorations */}
       <div className="absolute top-20 left-10 text-6xl opacity-20 animate-bounce-slow">🌸</div>
