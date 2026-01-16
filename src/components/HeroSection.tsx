@@ -9,7 +9,7 @@ import {
   FloatingBalloon,
   HappyStar,
   PlayfulCloud,
-  WavingKid,
+  // WavingKid,
   FlyingButterfly,
   SpinningPinwheel,
   DancingRainbow,
@@ -185,7 +185,7 @@ export const HeroSection = () => {
             <div ref={statsRef} className="grid grid-cols-4 gap-2 sm:gap-4">
               {[
                 { value: "20", suffix: "+", label: "Locations", emoji: "📍" },
-                { value: "1278", suffix: "", label: "Students", emoji: "👧" },
+                { value: "1639", suffix: "", label: "Students", emoji: "👧" },
                 { value: "4", suffix: "+", label: "Years Exp.", emoji: "⭐" },
                 { value: "4", suffix: "", label: "States", emoji: "🌍" },
               ].map((stat, index) => (
@@ -218,7 +218,7 @@ export const HeroSection = () => {
             className="relative mt-8 lg:mt-0"
           >
             {/* Waving Kid Character - Hidden on small screens */}
-            <WavingKid className="absolute -left-4 md:-left-8 bottom-16 md:bottom-20 w-16 h-24 md:w-24 md:h-32 z-20 hidden sm:block" delay={0} />
+            {/* <WavingKid className="absolute -left-4 md:-left-8 bottom-16 md:bottom-20 w-16 h-24 md:w-24 md:h-32 z-20 hidden sm:block" delay={0} /> */}
             
             <div className="relative rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white hero-image">
               <img

@@ -11,7 +11,7 @@ import {
   DancingRainbow, 
   SpinningPinwheel,
   FlyingButterfly,
-  WavingKid,
+  // WavingKid,
 } from "./AnimatedCharacters";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,7 +71,7 @@ export const BookTourSection = () => {
       <SpinningPinwheel className="absolute bottom-32 left-[10%] w-8 h-12 md:w-12 md:h-16 z-10 opacity-60 hidden md:block" delay={0} />
       <FlyingButterfly className="absolute top-1/3 right-[10%] w-10 h-8 md:w-14 md:h-10 z-10 opacity-50 hidden lg:block" delay={1} />
       <DancingRainbow className="absolute bottom-1/4 right-[5%] w-16 h-10 md:w-24 md:h-14 opacity-40 z-10 hidden lg:block" delay={0.5} />
-      <WavingKid className="absolute bottom-20 left-[3%] w-14 h-20 md:w-20 md:h-28 z-10 opacity-70 hidden md:block" delay={0} />
+      {/* <WavingKid className="absolute bottom-20 left-[3%] w-14 h-20 md:w-20 md:h-28 z-10 opacity-70 hidden md:block" delay={0} /> */}
       
       {/* Decorative Elements */}
       <div className="absolute top-10 left-6 sm:left-10 text-4xl sm:text-6xl opacity-30 animate-bounce-slow">🎈</div>

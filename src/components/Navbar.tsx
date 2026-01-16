@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedButton } from "./ui/animated-button";
 import { Menu, X, Phone, Mail, Star } from "lucide-react";
+import vibyLogo from "../assets/viby-logo.png";
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -52,17 +53,19 @@ export const Navbar = () => {
               className="flex items-center gap-2 sm:gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg">
-                <span className="text-white font-display font-bold text-lg sm:text-2xl">V</span>
-              </div>
-              <div>
+              <img 
+                src={vibyLogo} 
+                alt="Viby International School" 
+                className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
+              />
+              {/* <div>
                 <span className="font-display font-bold text-lg sm:text-xl text-foreground">
                   Viby
                 </span>
                 <span className="font-body font-medium text-[10px] sm:text-xs text-muted-foreground block">
                   International School
                 </span>
-              </div>
+              </div> */}
             </motion.a>
 
             {/* Desktop Navigation */}

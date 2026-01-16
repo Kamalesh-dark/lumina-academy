@@ -11,6 +11,7 @@ import {
   Heart,
 } from "lucide-react";
 import { FloatingBalloon, HappyStar } from "./AnimatedCharacters";
+import vibyLogo from "../assets/viby-logo.png";
 
 const footerLinks = {
   "Quick Links": [
@@ -85,13 +86,13 @@ export const Footer = () => {
                 className="flex items-center gap-3 mb-4 sm:mb-6"
                 whileHover={{ scale: 1.02, x: 5 }}
               >
-                <motion.div 
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
+                <motion.img 
+                  src={vibyLogo}
+                  alt="Viby International School"
+                  className="w-10 h-10 sm:w-14 sm:h-14 object-contain"
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
-                >
-                  <span className="text-white font-display font-bold text-xl sm:text-2xl">V</span>
-                </motion.div>
+                />
                 <div>
                   <span className="font-display font-bold text-xl sm:text-2xl text-white">
                     Viby
