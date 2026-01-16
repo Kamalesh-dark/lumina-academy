@@ -8,7 +8,6 @@ import lkgImg from "@/assets/lkg-class.jpg";
 import daycareImg from "@/assets/daycare.jpg";
 import activitiesImg from "@/assets/activities.jpg";
 import { FloatingBalloon, SpinningPinwheel, FlyingButterfly } from "./AnimatedCharacters";
-import { ScurryingSquirrel, SwimmingFish, SlitheringSnake, CrawlingLadybug } from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,30 +109,23 @@ export const ProgramsSection = () => {
   return (
     <section
       id="programs"
-      className="section-padding-kids relative overflow-hidden bg-cream/50"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-cream/50"
       ref={ref}
     >
-      {/* Animated Characters */}
-      <FloatingBalloon color="#A855F7" className="absolute top-20 left-[5%] w-14 h-20 z-10" delay={0} />
-      <FloatingBalloon color="#22C55E" className="absolute top-32 right-[8%] w-12 h-18 z-10" delay={0.7} />
-      <SpinningPinwheel className="absolute bottom-40 left-[8%] w-14 h-18 z-10" delay={0} />
-      <FlyingButterfly className="absolute top-1/2 right-[5%] w-16 h-12 z-10" delay={1} />
-
-      {/* Running Animals */}
-      <ScurryingSquirrel className="absolute bottom-20 w-16 h-14 z-20" delay={0} direction="left" />
-      <SwimmingFish className="absolute top-1/3 w-16 h-10 z-20" delay={1} color="#F472B6" />
-      <SwimmingFish className="absolute top-1/2 w-14 h-8 z-20" delay={3} color="#3B82F6" />
-      <SlitheringSnake className="absolute bottom-32 w-32 h-12 z-20" delay={2} />
-      <CrawlingLadybug className="absolute bottom-16 w-12 h-10 z-20" delay={1.5} direction="left" />
+      {/* Animated Characters - Hidden on mobile */}
+      <FloatingBalloon color="#A855F7" className="absolute top-20 left-[5%] w-10 h-16 md:w-14 md:h-20 z-10 hidden md:block" delay={0} />
+      <FloatingBalloon color="#22C55E" className="absolute top-32 right-[8%] w-8 h-12 md:w-12 md:h-18 z-10 hidden sm:block" delay={0.7} />
+      <SpinningPinwheel className="absolute bottom-40 left-[8%] w-10 h-14 md:w-14 md:h-18 z-10 hidden md:block" delay={0} />
+      <FlyingButterfly className="absolute top-1/2 right-[5%] w-12 h-8 md:w-16 md:h-12 z-10 hidden lg:block" delay={1} />
 
       {/* Background decorations */}
-      <div className="absolute top-20 left-10 text-6xl opacity-20 animate-bounce-slow">🌸</div>
-      <div className="absolute bottom-20 right-10 text-6xl opacity-20 animate-bounce-slow" style={{ animationDelay: "1s" }}>🌻</div>
-      <div className="absolute top-1/2 right-1/4 text-4xl opacity-20 animate-wiggle">⭐</div>
+      <div className="absolute top-20 left-10 text-4xl md:text-6xl opacity-20 animate-bounce-slow hidden sm:block">🌸</div>
+      <div className="absolute bottom-20 right-10 text-4xl md:text-6xl opacity-20 animate-bounce-slow hidden sm:block" style={{ animationDelay: "1s" }}>🌻</div>
+      <div className="absolute top-1/2 right-1/4 text-3xl md:text-4xl opacity-20 animate-wiggle hidden md:block">⭐</div>
       
       {/* Floating shapes */}
-      <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-coral-pink/10 rounded-full blur-xl animate-float-bubble" />
-      <div className="absolute bottom-1/4 right-1/3 w-20 h-20 bg-lavender/10 rounded-full blur-xl animate-float-bubble" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/4 left-1/3 w-12 h-12 md:w-16 md:h-16 bg-coral-pink/10 rounded-full blur-xl animate-float-bubble hidden sm:block" />
+      <div className="absolute bottom-1/4 right-1/3 w-16 h-16 md:w-20 md:h-20 bg-lavender/10 rounded-full blur-xl animate-float-bubble hidden md:block" style={{ animationDelay: "1.5s" }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -141,32 +133,32 @@ export const ProgramsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-blue/10 border-2 border-sky-blue/30 mb-4">
-            <span className="text-xl animate-bounce-slow">🏫</span>
-            <span className="text-sm font-semibold text-sky-blue">Early Childhood Development Hub</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-sky-blue/10 border-2 border-sky-blue/30 mb-3 sm:mb-4">
+            <span className="text-lg sm:text-xl animate-bounce-slow">🏫</span>
+            <span className="text-xs sm:text-sm font-semibold text-sky-blue">Early Childhood Development Hub</span>
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-4">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-3 sm:mb-4">
             Our
             <span className="bg-gradient-to-r from-sky-blue to-lavender bg-clip-text text-transparent"> Programs </span>
             🎒
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">
             Age-appropriate programs designed to nurture every stage of your child's development
           </p>
         </motion.div>
 
         {/* Programs Grid */}
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {programs.map((program, index) => (
             <div
               key={program.title}
               className="program-card group"
             >
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg border-4 border-transparent hover:border-cream transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border-4 border-transparent hover:border-cream transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 overflow-hidden">
                   <img
                     src={program.image}
                     alt={program.title}
@@ -175,13 +167,13 @@ export const ProgramsSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   
                   {/* Age Badge */}
-                  <div className={`absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r ${program.color} text-white text-sm font-bold shadow-lg`}>
+                  <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-gradient-to-r ${program.color} text-white text-xs sm:text-sm font-bold shadow-lg`}>
                     {program.ages}
                   </div>
 
                   {/* Emoji with animation */}
                   <motion.div 
-                    className="absolute bottom-4 left-4 text-4xl"
+                    className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 text-3xl sm:text-4xl"
                     animate={{ 
                       y: [0, -10, 0],
                       rotate: [0, 5, -5, 0],
@@ -197,11 +189,11 @@ export const ProgramsSection = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-display font-bold text-xl text-foreground mb-2 group-hover:text-lavender transition-colors">
+                <div className="p-4 sm:p-6">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-1 sm:mb-2 group-hover:text-lavender transition-colors">
                     {program.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-xs sm:text-sm">
                     {program.description}
                   </p>
                 </div>
@@ -215,26 +207,26 @@ export const ProgramsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-8 bg-gradient-to-r from-lavender/20 via-coral-pink/20 to-sunny-yellow/20 rounded-3xl p-8 border-4 border-white shadow-lg relative overflow-hidden"
+          className="mt-6 sm:mt-8 bg-gradient-to-r from-lavender/20 via-coral-pink/20 to-sunny-yellow/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border-4 border-white shadow-lg relative overflow-hidden"
         >
           {/* Decorative elements */}
-          <div className="absolute -top-4 -right-4 text-6xl opacity-30 animate-wiggle">💝</div>
-          <div className="absolute -bottom-4 -left-4 text-4xl opacity-30 animate-float-bubble">🌈</div>
+          <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 text-4xl sm:text-6xl opacity-30 animate-wiggle">💝</div>
+          <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 text-3xl sm:text-4xl opacity-30 animate-float-bubble">🌈</div>
           
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 relative z-10">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
               <motion.div 
-                className="text-5xl"
+                className="text-4xl sm:text-5xl"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 💝
               </motion.div>
               <div>
-                <h3 className="font-display font-bold text-2xl text-foreground">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-foreground">
                   Special Education Program
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm sm:text-base">
                   Inclusive learning environment for children with special needs
                 </p>
               </div>
@@ -242,7 +234,7 @@ export const ProgramsSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-lavender to-coral-pink text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-lavender to-coral-pink text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow text-sm sm:text-base w-full sm:w-auto"
             >
               Learn More ✨
             </motion.button>

@@ -13,7 +13,6 @@ import {
   FlyingButterfly,
   WavingKid,
 } from "./AnimatedCharacters";
-import { RunningDog, WaddlingDuck, FlyingBird, HoppingFrog } from "./AnimatedAnimals";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +56,7 @@ export const BookTourSection = () => {
   return (
     <section
       id="contact"
-      className="section-padding-kids relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       ref={ref}
     >
       {/* Animated Background */}
@@ -65,32 +64,26 @@ export const BookTourSection = () => {
         style={{ backgroundSize: "200% 200%" }}
       />
       
-      {/* Animated Characters */}
-      <FloatingBalloon color="#fff" className="absolute top-20 left-[5%] w-12 h-18 z-10 opacity-60" delay={0} />
-      <FloatingBalloon color="#fff" className="absolute top-32 right-[8%] w-10 h-16 z-10 opacity-50" delay={0.5} />
-      <HappyStar color="#fff" className="absolute top-1/4 left-[15%] w-10 h-10 z-10 opacity-50" delay={0.3} />
-      <SpinningPinwheel className="absolute bottom-32 left-[10%] w-12 h-16 z-10 opacity-60" delay={0} />
-      <FlyingButterfly className="absolute top-1/3 right-[10%] w-14 h-10 z-10 opacity-50" delay={1} />
-      <DancingRainbow className="absolute bottom-1/4 right-[5%] w-24 h-14 opacity-40 z-10" delay={0.5} />
-      <WavingKid className="absolute bottom-20 left-[3%] w-20 h-28 z-10 opacity-70" delay={0} />
-      
-      {/* Running Animals */}
-      <RunningDog className="absolute bottom-24 w-20 h-12 z-20 opacity-70" delay={0} direction="right" />
-      <WaddlingDuck className="absolute bottom-16 w-14 h-12 z-20 opacity-60" delay={2} direction="right" />
-      <FlyingBird className="absolute top-28 w-14 h-10 z-20 opacity-50" delay={1} color="#fff" />
-      <HoppingFrog className="absolute bottom-32 w-12 h-10 z-20 opacity-60" delay={3} />
+      {/* Animated Characters - Hidden on mobile */}
+      <FloatingBalloon color="#fff" className="absolute top-20 left-[5%] w-8 h-12 md:w-12 md:h-18 z-10 opacity-60 hidden sm:block" delay={0} />
+      <FloatingBalloon color="#fff" className="absolute top-32 right-[8%] w-6 h-10 md:w-10 md:h-16 z-10 opacity-50 hidden sm:block" delay={0.5} />
+      <HappyStar color="#fff" className="absolute top-1/4 left-[15%] w-6 h-6 md:w-10 md:h-10 z-10 opacity-50 hidden md:block" delay={0.3} />
+      <SpinningPinwheel className="absolute bottom-32 left-[10%] w-8 h-12 md:w-12 md:h-16 z-10 opacity-60 hidden md:block" delay={0} />
+      <FlyingButterfly className="absolute top-1/3 right-[10%] w-10 h-8 md:w-14 md:h-10 z-10 opacity-50 hidden lg:block" delay={1} />
+      <DancingRainbow className="absolute bottom-1/4 right-[5%] w-16 h-10 md:w-24 md:h-14 opacity-40 z-10 hidden lg:block" delay={0.5} />
+      <WavingKid className="absolute bottom-20 left-[3%] w-14 h-20 md:w-20 md:h-28 z-10 opacity-70 hidden md:block" delay={0} />
       
       {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 text-6xl opacity-30 animate-bounce-slow">🎈</div>
-      <div className="absolute top-20 right-20 text-5xl opacity-30 animate-bounce-slow" style={{ animationDelay: "0.5s" }}>⭐</div>
-      <div className="absolute bottom-20 left-1/4 text-6xl opacity-30 animate-bounce-slow" style={{ animationDelay: "1s" }}>🌈</div>
-      <div className="absolute bottom-10 right-10 text-5xl opacity-30 animate-wiggle">🎨</div>
+      <div className="absolute top-10 left-6 sm:left-10 text-4xl sm:text-6xl opacity-30 animate-bounce-slow">🎈</div>
+      <div className="absolute top-20 right-10 sm:right-20 text-3xl sm:text-5xl opacity-30 animate-bounce-slow hidden sm:block" style={{ animationDelay: "0.5s" }}>⭐</div>
+      <div className="absolute bottom-20 left-1/4 text-4xl sm:text-6xl opacity-30 animate-bounce-slow hidden sm:block" style={{ animationDelay: "1s" }}>🌈</div>
+      <div className="absolute bottom-10 right-6 sm:right-10 text-3xl sm:text-5xl opacity-30 animate-wiggle">🎨</div>
 
-      {/* Confetti */}
-      {[...Array(20)].map((_, i) => (
+      {/* Confetti - Hidden on mobile */}
+      {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 rounded-full"
+          className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full hidden sm:block"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -116,10 +109,10 @@ export const BookTourSection = () => {
           initial={{ opacity: 0, y: 20, scale: 0.8 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 0.6, type: "spring" }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/30 mb-6"
+          className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/30 mb-4 sm:mb-6"
         >
-          <Calendar className="w-4 h-4 text-white animate-bounce-slow" />
-          <span className="text-sm font-semibold text-white">Book Your Campus Tour</span>
+          <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-white animate-bounce-slow" />
+          <span className="text-xs sm:text-sm font-semibold text-white">Book Your Campus Tour</span>
         </motion.div>
 
         {/* Headline */}
@@ -127,7 +120,7 @@ export const BookTourSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6"
+          className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6"
         >
           Start Your Child's
           <br />
@@ -148,7 +141,7 @@ export const BookTourSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-8 sm:mb-10 px-4"
         >
           Admissions for 2026-27 are now open with limited seats. 
           Give your child the gift of world-class early education!
@@ -159,62 +152,62 @@ export const BookTourSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
         >
-          <AnimatedButton variant="sunny" size="xl" className="group">
+          <AnimatedButton variant="sunny" size="lg" className="group w-full sm:w-auto">
             Apply Now
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </AnimatedButton>
-          <AnimatedButton variant="playful" size="xl">
-            <Phone className="w-5 h-5" />
+          <AnimatedButton variant="playful" size="lg" className="w-full sm:w-auto">
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
             Talk to Us
           </AnimatedButton>
         </motion.div>
 
         {/* Contact Info Cards */}
-        <div ref={cardsRef} className="grid md:grid-cols-3 gap-4">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           <motion.div 
-            className="contact-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
+            className="contact-card bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
             whileHover={{ y: -5 }}
           >
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Phone className="w-8 h-8 text-white mx-auto mb-3" />
+              <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white mx-auto mb-2 sm:mb-3" />
             </motion.div>
-            <div className="font-display font-bold text-white text-lg">Call Us</div>
-            <a href="tel:+919840144800" className="text-white/90 hover:text-white transition-colors">
+            <div className="font-display font-bold text-white text-base sm:text-lg">Call Us</div>
+            <a href="tel:+919840144800" className="text-white/90 hover:text-white transition-colors text-sm sm:text-base">
               +91 98401 44800
             </a>
           </motion.div>
           <motion.div 
-            className="contact-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
+            className="contact-card bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
             whileHover={{ y: -5 }}
           >
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <Mail className="w-8 h-8 text-white mx-auto mb-3" />
+              <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-white mx-auto mb-2 sm:mb-3" />
             </motion.div>
-            <div className="font-display font-bold text-white text-lg">Email Us</div>
-            <a href="mailto:info@vibyinternationalschool.com" className="text-white/90 hover:text-white transition-colors text-sm">
+            <div className="font-display font-bold text-white text-base sm:text-lg">Email Us</div>
+            <a href="mailto:info@vibyinternationalschool.com" className="text-white/90 hover:text-white transition-colors text-xs sm:text-sm break-all">
               info@vibyinternationalschool.com
             </a>
           </motion.div>
           <motion.div 
-            className="contact-card bg-white/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
+            className="contact-card bg-white/20 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 border-white/30 hover:bg-white/30 transition-all hover:scale-105"
             whileHover={{ y: -5 }}
           >
             <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <MapPin className="w-8 h-8 text-white mx-auto mb-3" />
+              <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-white mx-auto mb-2 sm:mb-3" />
             </motion.div>
-            <div className="font-display font-bold text-white text-lg">Visit Us</div>
-            <div className="text-white/90 text-sm">Chennai, India & Malaysia</div>
+            <div className="font-display font-bold text-white text-base sm:text-lg">Visit Us</div>
+            <div className="text-white/90 text-xs sm:text-sm">Chennai, India & Malaysia</div>
           </motion.div>
         </div>
       </div>

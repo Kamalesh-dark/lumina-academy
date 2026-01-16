@@ -11,7 +11,6 @@ import {
   Heart,
 } from "lucide-react";
 import { FloatingBalloon, HappyStar } from "./AnimatedCharacters";
-import { CrawlingTurtle, CrawlingLadybug, ScurryingSquirrel } from "./AnimatedAnimals";
 
 const footerLinks = {
   "Quick Links": [
@@ -67,82 +66,77 @@ export const Footer = () => {
         </svg>
       </div>
 
-      {/* Animated Characters */}
-      <FloatingBalloon color="#F472B6" className="absolute top-20 right-[10%] w-10 h-16 opacity-30" delay={0} />
-      <HappyStar color="#FBBF24" className="absolute top-32 left-[8%] w-8 h-8 opacity-20" delay={0.5} />
-
-      {/* Running Animals */}
-      <CrawlingTurtle className="absolute bottom-24 w-14 h-8 z-20 opacity-40" delay={0} direction="right" />
-      <CrawlingLadybug className="absolute bottom-16 w-10 h-8 z-20 opacity-30" delay={3} direction="right" />
-      <ScurryingSquirrel className="absolute bottom-32 w-14 h-12 z-20 opacity-35" delay={1.5} direction="right" />
+      {/* Animated Characters - Hidden on mobile */}
+      <FloatingBalloon color="#F472B6" className="absolute top-20 right-[10%] w-6 h-10 md:w-10 md:h-16 opacity-30 hidden md:block" delay={0} />
+      <HappyStar color="#FBBF24" className="absolute top-32 left-[8%] w-6 h-6 md:w-8 md:h-8 opacity-20 hidden md:block" delay={0.5} />
 
       {/* Decorative elements */}
-      <div className="absolute top-20 left-20 text-4xl opacity-10 animate-float-bubble">🌟</div>
-      <div className="absolute bottom-40 right-20 text-4xl opacity-10 animate-wiggle">✨</div>
+      <div className="absolute top-20 left-10 md:left-20 text-3xl md:text-4xl opacity-10 animate-float-bubble hidden sm:block">🌟</div>
+      <div className="absolute bottom-40 right-10 md:right-20 text-3xl md:text-4xl opacity-10 animate-wiggle hidden sm:block">✨</div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-12 sm:pt-16">
         {/* Main Footer Content */}
-        <div className="py-12">
-          <div className="grid lg:grid-cols-4 gap-12">
+        <div className="py-8 sm:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Brand Column */}
-            <div className="lg:col-span-2">
+            <div className="sm:col-span-2">
               <motion.a
                 href="#"
-                className="flex items-center gap-3 mb-6"
+                className="flex items-center gap-3 mb-4 sm:mb-6"
                 whileHover={{ scale: 1.02, x: 5 }}
               >
                 <motion.div 
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  <span className="text-white font-display font-bold text-2xl">V</span>
+                  <span className="text-white font-display font-bold text-xl sm:text-2xl">V</span>
                 </motion.div>
                 <div>
-                  <span className="font-display font-bold text-2xl text-white">
+                  <span className="font-display font-bold text-xl sm:text-2xl text-white">
                     Viby
                   </span>
-                  <span className="font-body text-sm text-white/70 block">
+                  <span className="font-body text-xs sm:text-sm text-white/70 block">
                     International School
                   </span>
                 </div>
               </motion.a>
 
-              <p className="text-white/70 mb-6 max-w-sm leading-relaxed">
+              <p className="text-white/70 mb-4 sm:mb-6 max-w-sm leading-relaxed text-sm sm:text-base">
                 A fast-growing global chain of premium play schools, empowering 
                 little minds to become confident, compassionate, and capable global citizens.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-3 text-white/80">
+              <div className="space-y-2 sm:space-y-3 text-white/80">
                 <motion.div 
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-2 sm:gap-3"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-lavender/20 flex items-center justify-center">
-                    <MapPin className="w-4 h-4 text-lavender" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-lavender/20 flex items-center justify-center">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-lavender" />
                   </div>
-                  <span>Chennai, India & Malaysia</span>
+                  <span className="text-sm sm:text-base">Chennai, India & Malaysia</span>
                 </motion.div>
                 <motion.div 
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-2 sm:gap-3"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-coral-pink/20 flex items-center justify-center">
-                    <Phone className="w-4 h-4 text-coral-pink" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-coral-pink/20 flex items-center justify-center">
+                    <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-coral-pink" />
                   </div>
-                  <a href="tel:+919840144800" className="hover:text-white transition-colors">
+                  <a href="tel:+919840144800" className="hover:text-white transition-colors text-sm sm:text-base">
                     +91 98401 44800
                   </a>
                 </motion.div>
                 <motion.div 
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-2 sm:gap-3"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-sunny-yellow/20 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-sunny-yellow" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-sunny-yellow/20 flex items-center justify-center">
+                    <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-sunny-yellow" />
                   </div>
-                  <a href="mailto:info@vibyinternationalschool.com" className="hover:text-white transition-colors">
+                  <a href="mailto:info@vibyinternationalschool.com" className="hover:text-white transition-colors text-xs sm:text-sm break-all">
                     info@vibyinternationalschool.com
                   </a>
                 </motion.div>
@@ -152,19 +146,19 @@ export const Footer = () => {
             {/* Links Columns */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <h4 className="font-display font-bold text-white text-lg mb-4">
+                <h4 className="font-display font-bold text-white text-base sm:text-lg mb-3 sm:mb-4">
                   {title}
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   {links.map((link) => (
                     <li key={link.name}>
                       <motion.a
                         href={link.href}
-                        className="footer-link text-white/70 hover:text-white transition-colors flex items-center gap-2 group"
+                        className="footer-link text-white/70 hover:text-white transition-colors flex items-center gap-2 group text-sm sm:text-base"
                         whileHover={{ x: 5 }}
                       >
                         <motion.span 
-                          className="w-1.5 h-1.5 rounded-full bg-lavender group-hover:bg-coral-pink transition-colors"
+                          className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-lavender group-hover:bg-coral-pink transition-colors"
                           whileHover={{ scale: 1.5 }}
                         />
                         {link.name}
@@ -178,25 +172,25 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/60 text-sm flex items-center gap-2">
+        <div className="py-4 sm:py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-white/60 text-xs sm:text-sm flex items-center gap-2 text-center sm:text-left">
             © 2026 Viby International School. Made with 
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
-              <Heart className="w-4 h-4 text-coral-pink fill-coral-pink" />
+              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-coral-pink fill-coral-pink" />
             </motion.span>
             for little learners
           </p>
 
           {/* Social Links */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}
                 href={social.href}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-lavender hover:to-coral-pink flex items-center justify-center transition-all"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-lavender hover:to-coral-pink flex items-center justify-center transition-all"
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -204,7 +198,7 @@ export const Footer = () => {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5 text-white" />
+                <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </motion.a>
             ))}
           </div>
