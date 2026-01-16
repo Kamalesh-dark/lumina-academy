@@ -4,7 +4,6 @@ import { useInView } from "framer-motion";
 import gsap from "gsap";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { HappyStar, FloatingBalloon } from "./AnimatedCharacters";
-import { RunningCat, FlyingBee, BouncingBunny } from "./AnimatedAnimals";
 
 const testimonials = [
   {
@@ -82,27 +81,22 @@ export const TestimonialsSection = () => {
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="section-padding-kids relative overflow-hidden bg-white" ref={ref}>
-      {/* Animated Characters */}
-      <HappyStar color="#FBBF24" className="absolute top-20 left-[8%] w-12 h-12 z-10" delay={0} />
-      <HappyStar color="#F472B6" className="absolute bottom-20 right-[10%] w-10 h-10 z-10" delay={0.5} />
-      <FloatingBalloon color="#A855F7" className="absolute top-32 right-[5%] w-10 h-16 z-10" delay={0.3} />
-      <FloatingBalloon color="#22C55E" className="absolute bottom-40 left-[5%] w-8 h-12 z-10" delay={0.8} />
-
-      {/* Running Animals */}
-      <RunningCat className="absolute bottom-20 w-18 h-12 z-20" delay={1} direction="right" />
-      <FlyingBee className="absolute top-1/3 w-12 h-10 z-20" delay={0} />
-      <BouncingBunny className="absolute bottom-28 left-[10%] w-10 h-14 z-20" delay={2} />
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white" ref={ref}>
+      {/* Animated Characters - Hidden on mobile */}
+      <HappyStar color="#FBBF24" className="absolute top-20 left-[8%] w-8 h-8 md:w-12 md:h-12 z-10 hidden sm:block" delay={0} />
+      <HappyStar color="#F472B6" className="absolute bottom-20 right-[10%] w-6 h-6 md:w-10 md:h-10 z-10 hidden sm:block" delay={0.5} />
+      <FloatingBalloon color="#A855F7" className="absolute top-32 right-[5%] w-8 h-12 md:w-10 md:h-16 z-10 hidden md:block" delay={0.3} />
+      <FloatingBalloon color="#22C55E" className="absolute bottom-40 left-[5%] w-6 h-10 md:w-8 md:h-12 z-10 hidden md:block" delay={0.8} />
 
       {/* Background decorations */}
-      <div className="absolute top-10 left-10 text-8xl opacity-10 animate-pop">❤️</div>
-      <div className="absolute bottom-10 right-10 text-8xl opacity-10 animate-wiggle">💛</div>
+      <div className="absolute top-10 left-10 text-6xl md:text-8xl opacity-10 animate-pop hidden sm:block">❤️</div>
+      <div className="absolute bottom-10 right-10 text-6xl md:text-8xl opacity-10 animate-wiggle hidden sm:block">💛</div>
       
-      {/* Floating hearts */}
-      {[...Array(8)].map((_, i) => (
+      {/* Floating hearts - Hidden on mobile */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute text-2xl opacity-20"
+          className="absolute text-lg md:text-2xl opacity-20 hidden md:block"
           style={{
             left: `${10 + Math.random() * 80}%`,
             top: `${Math.random() * 100}%`,
@@ -128,13 +122,13 @@ export const TestimonialsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-pink/10 border-2 border-coral-pink/30 mb-4">
-            <span className="text-xl animate-bounce-slow">👨‍👩‍👧‍👦</span>
-            <span className="text-sm font-semibold text-coral-pink">Happy Viby Families</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-coral-pink/10 border-2 border-coral-pink/30 mb-3 sm:mb-4">
+            <span className="text-lg sm:text-xl animate-bounce-slow">👨‍👩‍👧‍👦</span>
+            <span className="text-xs sm:text-sm font-semibold text-coral-pink">Happy Viby Families</span>
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-foreground">
             What Parents
             <span className="bg-gradient-to-r from-coral-pink to-sunny-yellow bg-clip-text text-transparent"> Say </span>
             💬
@@ -150,23 +144,23 @@ export const TestimonialsSection = () => {
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               exit={{ opacity: 0, scale: 0.9, rotateY: 15 }}
               transition={{ duration: 0.5, type: "spring" }}
-              className="bg-gradient-to-br from-cream to-peach/30 rounded-3xl p-8 md:p-12 border-4 border-white shadow-xl text-center relative overflow-hidden"
+              className="bg-gradient-to-br from-cream to-peach/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border-4 border-white shadow-xl text-center relative overflow-hidden"
             >
               {/* Decorative corner elements */}
-              <div className="absolute top-4 left-4 text-3xl animate-wiggle">🌟</div>
-              <div className="absolute top-4 right-4 text-3xl animate-wiggle" style={{ animationDelay: "0.5s" }}>✨</div>
+              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 text-xl sm:text-3xl animate-wiggle">🌟</div>
+              <div className="absolute top-2 right-2 sm:top-4 sm:right-4 text-xl sm:text-3xl animate-wiggle" style={{ animationDelay: "0.5s" }}>✨</div>
               
               {/* Quote Icon */}
               <motion.div 
-                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-coral-pink to-lavender flex items-center justify-center mx-auto mb-6 shadow-lg"
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-coral-pink to-lavender flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg"
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                <Quote className="w-8 h-8 text-white" />
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </motion.div>
 
               {/* Stars */}
-              <div className="flex justify-center gap-1 mb-6">
+              <div className="flex justify-center gap-0.5 sm:gap-1 mb-4 sm:mb-6">
                 {[...Array(testimonials[activeIndex].stars)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -174,31 +168,31 @@ export const TestimonialsSection = () => {
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: i * 0.1, type: "spring" }}
                   >
-                    <Star className="star-icon w-6 h-6 text-sunny-yellow fill-sunny-yellow" />
+                    <Star className="star-icon w-4 h-4 sm:w-6 sm:h-6 text-sunny-yellow fill-sunny-yellow" />
                   </motion.div>
                 ))}
               </div>
 
               {/* Quote Text */}
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 font-medium">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground leading-relaxed mb-6 sm:mb-8 font-medium px-2 sm:px-4">
                 "{testimonials[activeIndex].quote}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-3 sm:gap-4">
                 <motion.div 
-                  className="w-14 h-14 rounded-full bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
+                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg"
                   whileHover={{ scale: 1.1, rotate: 10 }}
                 >
-                  <span className="font-display font-bold text-white text-lg">
+                  <span className="font-display font-bold text-white text-sm sm:text-lg">
                     {testimonials[activeIndex].avatar}
                   </span>
                 </motion.div>
                 <div className="text-left">
-                  <div className="font-display font-bold text-foreground text-lg">
+                  <div className="font-display font-bold text-foreground text-base sm:text-lg">
                     {testimonials[activeIndex].author}
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-xs sm:text-sm text-muted-foreground">
                     {testimonials[activeIndex].role}
                   </div>
                 </div>
@@ -211,32 +205,32 @@ export const TestimonialsSection = () => {
             onClick={prevSlide}
             whileHover={{ scale: 1.1, x: -5 }}
             whileTap={{ scale: 0.9 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden md:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-12 p-2 sm:p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden sm:block"
           >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
           </motion.button>
           <motion.button
             onClick={nextSlide}
             whileHover={{ scale: 1.1, x: 5 }}
             whileTap={{ scale: 0.9 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden md:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-12 p-2 sm:p-3 rounded-full bg-white shadow-lg hover:shadow-xl border-2 border-cream hover:border-lavender transition-all hidden sm:block"
           >
-            <ChevronRight className="w-6 h-6 text-foreground" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
           </motion.button>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex items-center justify-center gap-3 mt-8">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
           {testimonials.map((_, index) => (
             <motion.button
               key={index}
               onClick={() => setActiveIndex(index)}
               whileHover={{ scale: 1.3 }}
               whileTap={{ scale: 0.9 }}
-              className={`h-3 rounded-full transition-all duration-300 ${
+              className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? "w-8 bg-gradient-to-r from-coral-pink to-lavender"
-                  : "w-3 bg-muted hover:bg-muted-foreground/30"
+                  ? "w-6 sm:w-8 bg-gradient-to-r from-coral-pink to-lavender"
+                  : "w-2 sm:w-3 bg-muted hover:bg-muted-foreground/30"
               }`}
             />
           ))}

@@ -26,11 +26,11 @@ export const Navbar = () => {
   return (
     <>
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-lavender via-coral-pink to-sunny-yellow text-white py-2 px-4 text-center text-sm font-medium">
-        <div className="flex items-center justify-center gap-2 flex-wrap">
-          <Star className="w-4 h-4 animate-sparkle" />
+      <div className="bg-gradient-to-r from-lavender via-coral-pink to-sunny-yellow text-white py-1.5 sm:py-2 px-4 text-center text-xs sm:text-sm font-medium">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+          <Star className="w-3 h-3 sm:w-4 sm:h-4 animate-sparkle hidden sm:block" />
           <span>🎉 Admissions Open 2026-27 — Limited Seats — Join Now!</span>
-          <Star className="w-4 h-4 animate-sparkle" />
+          <Star className="w-3 h-3 sm:w-4 sm:h-4 animate-sparkle hidden sm:block" />
         </div>
       </div>
 
@@ -44,34 +44,34 @@ export const Navbar = () => {
             : "bg-white"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <motion.a
               href="#"
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg">
-                <span className="text-white font-display font-bold text-2xl">V</span>
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-lavender to-coral-pink flex items-center justify-center shadow-lg">
+                <span className="text-white font-display font-bold text-lg sm:text-2xl">V</span>
               </div>
               <div>
-                <span className="font-display font-bold text-xl text-foreground">
+                <span className="font-display font-bold text-lg sm:text-xl text-foreground">
                   Viby
                 </span>
-                <span className="font-body font-medium text-xs text-muted-foreground block">
+                <span className="font-body font-medium text-[10px] sm:text-xs text-muted-foreground block">
                   International School
                 </span>
               </div>
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-foreground/80 hover:text-lavender font-semibold transition-colors relative group"
+                  className="text-foreground/80 hover:text-lavender font-semibold transition-colors relative group text-sm xl:text-base"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -83,10 +83,10 @@ export const Navbar = () => {
             </div>
 
             {/* Contact & CTA */}
-            <div className="hidden lg:flex items-center gap-4">
-              <a href="tel:+919840144800" className="flex items-center gap-2 text-foreground/70 hover:text-lavender transition-colors">
-                <Phone className="w-4 h-4" />
-                <span className="font-medium text-sm">+91 98401 44800</span>
+            <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+              <a href="tel:+919840144800" className="flex items-center gap-1.5 xl:gap-2 text-foreground/70 hover:text-lavender transition-colors">
+                <Phone className="w-3.5 h-3.5 xl:w-4 xl:h-4" />
+                <span className="font-medium text-xs xl:text-sm">+91 98401 44800</span>
               </a>
               <AnimatedButton variant="kids" size="sm">
                 Enroll Now 🌟
@@ -98,7 +98,7 @@ export const Navbar = () => {
               className="lg:hidden p-2 rounded-xl bg-cream text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -111,14 +111,14 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-32 px-6 lg:hidden"
+            className="fixed inset-0 z-40 bg-white pt-28 sm:pt-32 px-4 sm:px-6 lg:hidden overflow-y-auto"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-2xl font-display font-bold text-foreground/80 hover:text-lavender py-2"
+                  className="text-xl sm:text-2xl font-display font-bold text-foreground/80 hover:text-lavender py-2"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -127,10 +127,10 @@ export const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <div className="flex flex-col gap-4 mt-6">
+              <div className="flex flex-col gap-3 sm:gap-4 mt-4 sm:mt-6">
                 <a href="tel:+919840144800" className="flex items-center gap-2 text-foreground/70">
-                  <Phone className="w-5 h-5 text-lavender" />
-                  <span className="font-semibold">+91 98401 44800</span>
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-lavender" />
+                  <span className="font-semibold text-sm sm:text-base">+91 98401 44800</span>
                 </a>
                 <AnimatedButton variant="kids" size="lg" className="w-full">
                   Enroll Now 🌟
