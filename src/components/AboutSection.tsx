@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Heart, Lightbulb, Users, Star, Sparkles } from "lucide-react";
 import { JumpingRabbit, BouncingBall, HappyStar } from "./AnimatedCharacters";
+import { RoaringTiger } from "./RoaringTiger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,6 +87,9 @@ export const AboutSection = () => {
       className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white"
       ref={ref}
     >
+      {/* Roaring Tiger - Main attraction */}
+      <RoaringTiger className="absolute top-16 right-[3%] w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 z-20" />
+
       {/* Animated Characters - Hidden on mobile */}
       <JumpingRabbit className="absolute top-20 left-[5%] w-12 h-16 md:w-16 md:h-20 z-10 hidden md:block" delay={0} />
       <BouncingBall color="#FBBF24" className="absolute top-32 right-[8%] w-8 h-8 md:w-12 md:h-12 z-10 hidden sm:block" delay={0.5} />
