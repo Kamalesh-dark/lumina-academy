@@ -117,6 +117,21 @@ export const HeroSection = () => {
         />
       ))}
 
+      {/* Hanging Monkey - Top Right */}
+      <motion.img 
+        src="/animal_7.svg" 
+        alt="Playful Monkey" 
+        className="absolute -top-4 right-[0%] w-24 md:w-32 lg:w-40 z-20 origin-top hidden md:block"
+        initial={{ rotate: -5 }}
+        animate={{ rotate: 5 }}
+        transition={{ 
+          duration: 2, 
+          repeat: Infinity, 
+          repeatType: "reverse", 
+          ease: "easeInOut" 
+        }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}

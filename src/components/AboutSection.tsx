@@ -4,14 +4,13 @@ import { useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Heart, Lightbulb, Users, Star, Sparkles } from "lucide-react";
-import { JumpingRabbit, BouncingBall, HappyStar } from "./AnimatedCharacters";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
     icon: Brain,
-    title: "Behavioral Skills",
+    title: "Behavioral Skills", 
     description: "Nurturing positive behaviors and emotional intelligence",
     color: "from-lavender to-purple-400",
     bg: "bg-lavender/10",
@@ -86,13 +85,6 @@ export const AboutSection = () => {
       className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white"
       ref={ref}
     >
-
-      {/* Animated Characters - Hidden on mobile */}
-      <JumpingRabbit className="absolute top-20 left-[5%] w-12 h-16 md:w-16 md:h-20 z-10 hidden md:block" delay={0} />
-      <BouncingBall color="#FBBF24" className="absolute top-32 right-[8%] w-8 h-8 md:w-12 md:h-12 z-10 hidden sm:block" delay={0.5} />
-      <BouncingBall color="#F472B6" className="absolute bottom-40 left-[10%] w-6 h-6 md:w-10 md:h-10 z-10 hidden sm:block" delay={1} />
-      <HappyStar color="#A855F7" className="absolute bottom-32 right-[12%] w-10 h-10 md:w-14 md:h-14 z-10 hidden md:block" delay={0.3} />
-
       {/* Background decorations */}
       <div className="absolute top-10 right-10 md:right-20 text-6xl md:text-8xl opacity-10 animate-swing hidden sm:block">🎠</div>
       <div className="absolute bottom-10 left-10 md:left-20 text-6xl md:text-8xl opacity-10 animate-wiggle hidden sm:block">🎪</div>
@@ -103,8 +95,24 @@ export const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12 md:mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16 relative"
         >
+          {/* Animals Inline with Header */}
+          <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 md:left-0 lg:left-[2%] w-52 md:w-64 lg:w-64 min-[1260px]:w-80 z-20 scale-x-[-1]">
+            <img 
+              src="/animal_6.svg" 
+              alt="Tiger" 
+              className="w-full h-auto hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+          <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 md:right-0 lg:right-[2%] w-52 md:w-64 lg:w-64 min-[1260px]:w-80 z-20 scale-x-[-1]">
+            <img 
+              src="/animal_3.svg"     
+              alt="Elephant" 
+              className="w-full h-auto hover:scale-110 transition-transform duration-500" 
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-lavender/10 border-2 border-lavender/30 mb-3 sm:mb-4">
             <Star className="w-3 h-3 sm:w-4 sm:h-4 text-lavender animate-sparkle" />
             <span className="text-xs sm:text-sm font-semibold text-lavender">GEN-ALPHA Curriculum</span>
