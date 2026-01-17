@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedButton } from "./ui/animated-button";
 import { Menu, X, Phone, Mail, Star } from "lucide-react";
 import vibyLogo from "../assets/viby-logo.png";
+import { RunningHorse } from "./RunningHorse";
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -39,12 +40,14 @@ export const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 overflow-hidden ${
           isScrolled
             ? "bg-white/95 backdrop-blur-xl shadow-lg"
             : "bg-white"
         }`}
       >
+        {/* Running Horse Animation */}
+        <RunningHorse />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
